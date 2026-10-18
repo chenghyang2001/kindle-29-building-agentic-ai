@@ -18,3 +18,4 @@
 | 08 | 2026-10-18 | 9 分 | hook 由全域 afterFileWrite 改專案層 PostToolUse＋prettier；Plugins 只說明；isolated 開窗先跳「允許外部 CLAUDE.md 匯入」需選允許 |
 | 09 | 2026-10-18 | 5 分 | 依章名設計；不呼叫 Computer Use API，用 Playwright 在本機表單模擬觀察→決策→動作，前後截圖驗證 |
 | 10 | 2026-10-18 | 4 分 | 依章名設計；4 個模式用假 LLM 寫最小範例，pytest 14/14 通過 |
+| 11 | 2026-10-18 | 4 分 | 依章名設計；claude-agent-sdk 0.2.168 不設 API key 走訂閱直接跑通（6 回合），未用 claude -p 備案 |
