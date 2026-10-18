@@ -14,3 +14,4 @@
 | 04 | 2026-10-18 | 7 分 | 用 /plan 取代 Shift+Tab，整份計畫一次核准後切回 bypass；踩到 TS 7 與 ts-jest 不相容，教訓寫進 CLAUDE.md |
 | 05 | 2026-10-18 | 7 分 | favorites 用記憶體 repository（migration 只寫 SQL 藍圖）；legacy class 元件自行準備；66/66 測試通過 |
 | 06 | 2026-10-18 | 8 分 | MCP 一律 --scope project；deploy-staging 回假結果；Jira 只寫範本；claude -p 實際呼叫成功 |
+| 07 | 2026-10-18 | 5 分 | 不開多終端機／worktree，改單一 session 平行派 3 子代理；先寫 CONTRACT.md 劃邊界，無越界衝突，37/37 通過 |
