@@ -1,0 +1,12 @@
+[
+  {"id": "c1", "input": "我上週買的耳機壞了，訂單編號 A12345，想申請退款，請盡快處理！",
+   "expected": {"category": "退款", "order_id": "A12345", "urgency": "high"}},
+  {"id": "c2", "input": "我忘記密碼登不進去帳號了，可以幫我重設嗎？",
+   "expected": {"category": "帳號", "order_id": null, "urgency": "medium"}},
+  {"id": "c3", "input": "訂單 B67890 已經五天了還沒到貨，物流到底在哪？明天就要用了！",
+   "expected": {"category": "物流", "order_id": "B67890", "urgency": "high"}},
+  {"id": "c4", "input": "請問你們週末有營業嗎？",
+   "expected": {"category": "其他", "order_id": null, "urgency": "low"}},
+  {"id": "c5", "input": "訂單 C24680 的包裹顯示已送達，但我沒收到，麻煩查一下。",
+   "expected": {"category": "物流", "order_id": "C24680", "urgency": "medium"}}
+]

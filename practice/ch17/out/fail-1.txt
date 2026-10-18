@@ -1,0 +1,46 @@
+.FF..FF.                                                                 [100%]
+================================== FAILURES ===================================
+_______________________ test_word_count_multiple_spaces _______________________
+
+    def test_word_count_multiple_spaces():
+>       assert word_count("  hello    world \t\n foo  ") == 3
+E       AssertionError: assert 11 == 3
+E        +  where 11 = word_count('  hello    world \t\n foo  ')
+
+tests\test_textstats.py:12: AssertionError
+____________________________ test_word_count_empty ____________________________
+
+    def test_word_count_empty():
+>       assert word_count("") == 0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = word_count('')
+
+tests\test_textstats.py:16: AssertionError
+____________________________ test_top_words_order _____________________________
+
+    def test_top_words_order():
+        text = "cat dog cat bird dog cat"
+>       assert top_words(text, 2) == [("cat", 3), ("dog", 2)]
+E       AssertionError: assert [('bird', 1), ('dog', 2)] == [('cat', 3), ('dog', 2)]
+E         
+E         At index 0 diff: ('bird', 1) != ('cat', 3)
+E         Use -v to get more diff
+
+tests\test_textstats.py:30: AssertionError
+________________ test_top_words_case_insensitive_and_tie_break ________________
+
+    def test_top_words_case_insensitive_and_tie_break():
+        text = "B a A b c"
+>       assert top_words(text, 3) == [("a", 2), ("b", 2), ("c", 1)]
+E       AssertionError: assert [('c', 1), ('a', 2), ('b', 2)] == [('a', 2), ('b', 2), ('c', 1)]
+E         
+E         At index 0 diff: ('c', 1) != ('a', 2)
+E         Use -v to get more diff
+
+tests\test_textstats.py:35: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_textstats.py::test_word_count_multiple_spaces - AssertionEr...
+FAILED tests/test_textstats.py::test_word_count_empty - AssertionError: asser...
+FAILED tests/test_textstats.py::test_top_words_order - AssertionError: assert...
+FAILED tests/test_textstats.py::test_top_words_case_insensitive_and_tie_break
+4 failed, 4 passed in 0.12s

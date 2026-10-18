@@ -1,0 +1,8 @@
+node_modules/
+*.stackdump
+core
+*.core
+*.dmp
+.env
+run.out.txt
+mcp-list.out.txt

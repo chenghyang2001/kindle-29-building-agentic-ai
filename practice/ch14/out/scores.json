@@ -1,0 +1,190 @@
+[
+  {
+    "round": 1,
+    "average": 0.0,
+    "scores": {
+      "c1": 0,
+      "c2": 0,
+      "c3": 0,
+      "c4": 0,
+      "c5": 0
+    },
+    "used_feedback": false,
+    "details": [
+      {
+        "id": "c1",
+        "input": "我上週買的耳機壞了，訂單編號 A12345，想申請退款，請盡快處理！",
+        "expected": {
+          "category": "退款",
+          "order_id": "A12345",
+          "urgency": "high"
+        },
+        "output": "```json\n{\n  \"分類\": {\n    \"主類別\": \"售後服務\",\n    \"子類別\": \"退款申請\",\n    \"問題類型\": \"產品故障\"\n  },\n  \"優先級\": \"高\",\n  \"情緒\": \"負面（不滿、催促）\",\n  \"重要資訊\": {\n    \"商品\": \"耳機\",\n    \"訂單編號\": \"A12345\",\n    \"購買時間\": \"上週\",\n    \"問題描述\": \"耳機損壞\",\n    \"客戶請求\": \"申請退款\",\n    \"時效要求\": \"盡快處理\"\n  },\n  \"需要追蹤事項\": [\n    \"核對訂單 A12345 的付款與退款資格\",\n    \"確認是否在退貨或退款的期限內\",\n    \"回覆客戶並告知退款流程與預計時間\"\n  ]\n}\n```\n\n判斷依據：訊息明確要求退款，且表明耳機已損壞，因此歸為售後的退款申請。客戶使用「盡快」催促，所以優先級定為高。",
+        "score": 0,
+        "reasons": [
+          "輸出不是合法的 JSON 物件（不可含 markdown 圍欄或其他文字）"
+        ],
+        "parsed": null
+      },
+      {
+        "id": "c2",
+        "input": "我忘記密碼登不進去帳號了，可以幫我重設嗎？",
+        "expected": {
+          "category": "帳號",
+          "order_id": null,
+          "urgency": "medium"
+        },
+        "output": "```json\n{\n  \"分類\": {\n    \"主類別\": \"帳號問題\",\n    \"子類別\": \"忘記密碼／無法登入\",\n    \"意圖\": \"請求重設密碼\",\n    \"情緒\": \"略帶困擾（中性偏負面）\",\n    \"緊急程度\": \"中\"\n  },\n  \"重要資訊\": {\n    \"問題描述\": \"忘記密碼，無法登入帳號\",\n    \"客戶請求\": \"協助重設密碼\",\n    \"帳號識別資訊\": null,\n    \"發生管道\": null\n  },\n  \"缺少的資訊\": [\n    \"帳號識別資訊（註冊 Email 或手機號碼）\",\n    \"是否能收到驗證信或驗證碼\"\n  ],\n  \"建議處理\": \"回覆客戶說明重設密碼流程，並請其提供註冊 Email 或手機號碼以確認身分後發送重設連結。\"\n}\n```",
+        "score": 0,
+        "reasons": [
+          "輸出不是合法的 JSON 物件（不可含 markdown 圍欄或其他文字）"
+        ],
+        "parsed": null
+      },
+      {
+        "id": "c3",
+        "input": "訂單 B67890 已經五天了還沒到貨，物流到底在哪？明天就要用了！",
+        "expected": {
+          "category": "物流",
+          "order_id": "B67890",
+          "urgency": "high"
+        },
+        "output": "```json\n{\n  \"分類\": {\n    \"主類別\": \"物流配送\",\n    \"子類別\": \"未到貨／物流進度查詢\",\n    \"情緒\": \"負面（焦急、不耐）\",\n    \"優先級\": \"高\",\n    \"是否需要真人處理\": false\n  },\n  \"重要資訊\": {\n    \"訂單編號\": \"B67890\",\n    \"問題描述\": \"訂單已超過五天仍未到貨\",\n    \"客戶需求\": \"查詢物流目前位置\",\n    \"時間限制\": \"明天需要使用，急迫性高\",\n    \"未到貨天數\": 5\n  },\n  \"建議處理\": [\n    \"立即查詢訂單 B67890 的物流追蹤紀錄\",\n    \"若包裹卡件或延遲，主動告知客戶最新狀態與預計到貨時間\",\n    \"評估能否加急配送或提供替代方案，以符合客戶明天的使用需求\"\n  ]\n}\n```\n\n這是一則物流未到貨的查詢，客戶語氣焦急，且有明天就要用的時限，建議列為高優先處理。",
+        "score": 0,
+        "reasons": [
+          "輸出不是合法的 JSON 物件（不可含 markdown 圍欄或其他文字）"
+        ],
+        "parsed": null
+      },
+      {
+        "id": "c4",
+        "input": "請問你們週末有營業嗎？",
+        "expected": {
+          "category": "其他",
+          "order_id": null,
+          "urgency": "low"
+        },
+        "output": "```json\n{\n  \"category\": \"一般諮詢\",\n  \"sub_category\": \"營業時間查詢\",\n  \"intent\": \"詢問週末是否營業\",\n  \"sentiment\": \"中性\",\n  \"urgency\": \"低\",\n  \"entities\": {\n    \"time_reference\": \"週末\",\n    \"store_name\": null,\n    \"product_name\": null,\n    \"order_id\": null,\n    \"contact_info\": null\n  },\n  \"key_points\": [\n    \"客戶詢問公司週末是否有營業\"\n  ],\n  \"requires_human\": false,\n  \"missing_info\": [\n    \"未指定門市或分店，若公司有多個據點，需確認是哪一間\"\n  ]\n}\n```\n\n這則訊息是單純的營業時間詢問，語氣中性，不需轉人工。若要回覆，需要先確認週末的實際營業時段，並視情況補問客戶想去的門市。",
+        "score": 0,
+        "reasons": [
+          "輸出不是合法的 JSON 物件（不可含 markdown 圍欄或其他文字）"
+        ],
+        "parsed": null
+      },
+      {
+        "id": "c5",
+        "input": "訂單 C24680 的包裹顯示已送達，但我沒收到，麻煩查一下。",
+        "expected": {
+          "category": "物流",
+          "order_id": "C24680",
+          "urgency": "medium"
+        },
+        "output": "```json\n{\n  \"category\": \"物流配送\",\n  \"sub_category\": \"顯示已送達但未收到\",\n  \"intent\": \"查詢包裹狀態\",\n  \"sentiment\": \"負面\",\n  \"urgency\": \"中\",\n  \"entities\": {\n    \"order_id\": \"C24680\",\n    \"package_status_claimed\": \"已送達\",\n    \"customer_received\": false\n  },\n  \"customer_request\": \"查詢訂單 C24680 的配送狀況\",\n  \"suggested_next_step\": \"核對物流紀錄與簽收資訊，確認送達地點與時間，必要時聯繫物流商或安排補寄／退款\"\n}\n```",
+        "score": 0,
+        "reasons": [
+          "輸出不是合法的 JSON 物件（不可含 markdown 圍欄或其他文字）"
+        ],
+        "parsed": null
+      }
+    ]
+  },
+  {
+    "round": 2,
+    "average": 100.0,
+    "scores": {
+      "c1": 100,
+      "c2": 100,
+      "c3": 100,
+      "c4": 100,
+      "c5": 100
+    },
+    "used_feedback": true,
+    "details": [
+      {
+        "id": "c1",
+        "input": "我上週買的耳機壞了，訂單編號 A12345，想申請退款，請盡快處理！",
+        "expected": {
+          "category": "退款",
+          "order_id": "A12345",
+          "urgency": "high"
+        },
+        "output": "{\"category\": \"退款\", \"order_id\": \"A12345\", \"urgency\": \"high\"}",
+        "score": 100,
+        "reasons": [],
+        "parsed": {
+          "category": "退款",
+          "order_id": "A12345",
+          "urgency": "high"
+        }
+      },
+      {
+        "id": "c2",
+        "input": "我忘記密碼登不進去帳號了，可以幫我重設嗎？",
+        "expected": {
+          "category": "帳號",
+          "order_id": null,
+          "urgency": "medium"
+        },
+        "output": "{\"category\": \"帳號\", \"order_id\": null, \"urgency\": \"medium\"}",
+        "score": 100,
+        "reasons": [],
+        "parsed": {
+          "category": "帳號",
+          "order_id": null,
+          "urgency": "medium"
+        }
+      },
+      {
+        "id": "c3",
+        "input": "訂單 B67890 已經五天了還沒到貨，物流到底在哪？明天就要用了！",
+        "expected": {
+          "category": "物流",
+          "order_id": "B67890",
+          "urgency": "high"
+        },
+        "output": "{\"category\": \"物流\", \"order_id\": \"B67890\", \"urgency\": \"high\"}",
+        "score": 100,
+        "reasons": [],
+        "parsed": {
+          "category": "物流",
+          "order_id": "B67890",
+          "urgency": "high"
+        }
+      },
+      {
+        "id": "c4",
+        "input": "請問你們週末有營業嗎？",
+        "expected": {
+          "category": "其他",
+          "order_id": null,
+          "urgency": "low"
+        },
+        "output": "{\"category\": \"其他\", \"order_id\": null, \"urgency\": \"low\"}",
+        "score": 100,
+        "reasons": [],
+        "parsed": {
+          "category": "其他",
+          "order_id": null,
+          "urgency": "low"
+        }
+      },
+      {
+        "id": "c5",
+        "input": "訂單 C24680 的包裹顯示已送達，但我沒收到，麻煩查一下。",
+        "expected": {
+          "category": "物流",
+          "order_id": "C24680",
+          "urgency": "medium"
+        },
+        "output": "{\"category\": \"物流\", \"order_id\": \"C24680\", \"urgency\": \"medium\"}",
+        "score": 100,
+        "reasons": [],
+        "parsed": {
+          "category": "物流",
+          "order_id": "C24680",
+          "urgency": "medium"
+        }
+      }
+    ]
+  }
+]
