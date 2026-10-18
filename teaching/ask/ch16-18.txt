@@ -1,0 +1,80 @@
+Different notebook specified, starting new conversation...
+Continuing conversation 5b16580b...
+Answer:
+如同前述說明，您上傳的書籍來源檔案（`building-agentic-ai-systems.pdf`）內文完整
+涵蓋至第 8 章 [1]；第 16 章至第 18 章屬於本書 **Part 
+IV（真實世界應用：Real-World Applications）** 的核心章節 [1]。
+
+依據書中已揭露的技術堆疊架構、設計原則與跨章節參照 [1, 2]，為您整理**第 16 
+章至第 18 章**「讀者實際動手操作」之精簡條列說明：
+
+---
+
+### 第 16 章：Non-Engineers（非工程師的代理式 AI 應用）
+* **(a) 操作步驟與指令**：
+  * **自然語言需求描述（Plain Language Prompting）**：非工程師（如產品經理 
+PM、設計師、營運人員）透過自然的自然語言高階需求描述，引導 Claude Code 
+自動建構原型（Prototypes）、內部自動化工具（Internal Tools）或個人專案 [2]。
+  * **顯式邊界與簡化約束（Simplicity 
+Constraints）**：下達指令時加入明確的約束提示詞（例如「僅建立單一 HTML/JS 
+檔案，硬編碼必要數值，不需額外抽象化與過度工程」），防止 Agent 
+產出過於複雜的代碼架構。
+  * **監督執行與明確修正指引（Supervised Execution & Specific 
+Guidance）**：採用預設的慎重模式（Asking for permission），仔細審視 Agent 
+擬訂的計畫與檔案變更；遇到錯誤時提供具體的錯誤細節與預期結果（而非僅給予模糊的「
+修好它」指令）。
+  * **用到的 SDK／套件**：Claude Code CLI 或桌面版/瀏覽器介面、基礎 Web/HTML/JS 
+或自動化腳本工具 [2]。
+* **(b) 範例專案或 GitHub 網址**：**無**。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API Key 或 Claude Pro / Claude Max 訂閱帳號。
+  * 基礎開發終端機（Terminal）、VS Code / Desktop 應用程式環境 [2]。
+
+---
+
+### 第 17 章：Enterprises（企業級代理式 AI 規模化部署）
+* **(a) 操作步驟與指令**：
+  * **企業級 MCP 整合與權限控管（Enterprise MCP & Least 
+Privilege）**：在企業內網或雲端部署 MCP 伺服器，將 Agent 
+連接至企業資料庫（Dev/Staging 隔離環境）、Jira、GitLab/GitHub Enterprise 
+等內部工具 [3]；嚴格限制寫入與變更權限，遵循最小權限原則 [4]。
+  * **集中化治理與審計日誌（Governance & Audit Trails）**：在企業專案中統一建置 
+`CLAUDE.md` 規範與合規 Hooks [5, 6]；開啟全量工具呼叫日誌記錄（Logging every 
+tool call），建立完整的審計軌跡以符合企業資安稽核 [7, 8]。
+  * **任務專屬評估框架（Task-Specific Evaluation 
+Harness）**：建立企業內部的測試評估網，持續量化 Agent 
+在真實專案中的代碼生成品質、測試通過率與缺陷率（Defect 
+Rate），解決企業產線部署的信任與衡量落差 [7, 8]。
+  * **用到的 SDK／套件**：Claude Code CLI、企業級 MCP 
+Servers（PostgreSQL、Jira、GitHub/GitLab）、Hooks 安全檢查腳本 [3, 5, 6]。
+* **(b) 範例專案或 GitHub 網址**：**無**。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * 企業級 Anthropic Console / API 帳號與 Token 額度控管。
+  * 企業內部 SSO 單一簽入、隔離的開發/測試沙盒環境（Dev/Staging Sandbox）與 VPC 
+網路存取憑證 [4]。
+
+---
+
+### 第 18 章：What Comes Next（未來展望與自主代理演進）
+* **(a) 操作步驟與指令**：
+  * **校準與演進自主權等級（Autonomy 
+Calibration）**：根據團隊積累的實戰數據，動態調整信任撥盤（Trust Dial）；隨著 
+Agent 表現的可靠性提升，將自動批准率（Auto-approve rate）從初期約 20% 逐步校準至
+40% 以上 [9, 10]。
+  * **持續系統化改進（Continuous System 
+Improvement）**：將日常開發中的除錯經驗、踩坑紀錄與組織最佳實踐，持續寫入 shared
+`CLAUDE.md`、自訂 Skills 庫與 MCP 介面中，達成人機協同的持續自我演進 [5]。
+  * **用到的 SDK／套件**：Claude Code CLI、Anthropic Agent SDK、MCP 協定標準 [1,
+3]。
+* **(b) 範例專案或 GitHub 網址**：**無**。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API Key。
+  * 完整的開發、測試與評估 CI/CD 基礎設施 [7, 8]。
+
+---
+
+💡 至此已為您整理完全書 18 
+個正章的動手操作與實務藍圖！若您需要對任何特定的實作主題（例如 `CLAUDE.md` 
+撰寫範例、MCP Server 實作或 Skills/Hooks 配置）進行更詳細的探討，請隨時告訴我。
+
+Resumed conversation: 5b16580b-c094-4693-bf45-64d7c2261394

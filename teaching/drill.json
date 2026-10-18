@@ -1,0 +1,139 @@
+{
+  "book": "K29",
+  "repo": "kindle-29-building-agentic-ai",
+  "title": "Building Agentic AI",
+  "prompt_source": "teaching/LESSON-PLAN.md",
+  "chapters": [
+    {
+      "id": "01",
+      "folder": "k29-ch01-practice",
+      "mode": "normal",
+      "minutes": 3,
+      "parallel_with": []
+    },
+    {
+      "id": "02",
+      "folder": "k29-ch02-practice",
+      "mode": "normal",
+      "minutes": 3,
+      "parallel_with": []
+    },
+    {
+      "id": "03",
+      "folder": "k29-ch03-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "04",
+      "folder": "k29-ch04-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": [],
+      "note": "示範 plan 模式後切回 bypass"
+    },
+    {
+      "id": "05",
+      "folder": "k29-ch05-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": []
+    },
+    {
+      "id": "06",
+      "folder": "k29-ch06-practice",
+      "mode": "normal",
+      "minutes": 8,
+      "parallel_with": [],
+      "note": "MCP 一律 --scope project"
+    },
+    {
+      "id": "07",
+      "folder": "k29-ch07-practice",
+      "mode": "normal",
+      "minutes": 8,
+      "parallel_with": []
+    },
+    {
+      "id": "08",
+      "folder": "k29-ch08-practice",
+      "mode": "isolated",
+      "minutes": 8,
+      "parallel_with": [],
+      "note": "isolated：hook 寫專案層"
+    },
+    {
+      "id": "09",
+      "folder": "k29-ch09-practice",
+      "mode": "normal",
+      "minutes": 8,
+      "parallel_with": [],
+      "note": "Computer Use 用本機 Playwright 示範，不用真實帳號"
+    },
+    {
+      "id": "10",
+      "folder": "k29-ch10-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "11",
+      "folder": "k29-ch11-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "Agent SDK 不設 ANTHROPIC_API_KEY，走已登入訂閱"
+    },
+    {
+      "id": "12",
+      "folder": "k29-ch12-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "13",
+      "folder": "k29-ch13-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "14",
+      "folder": "k29-ch14-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "15",
+      "folder": "k29-ch15-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    },
+    {
+      "id": "16",
+      "folder": "k29-ch16-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    },
+    {
+      "id": "17",
+      "folder": "k29-ch17-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    },
+    {
+      "id": "18",
+      "folder": "k29-ch18-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    }
+  ]
+}

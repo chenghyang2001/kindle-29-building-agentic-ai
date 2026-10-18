@@ -1,0 +1,82 @@
+Different notebook specified, starting new conversation...
+Continuing conversation 5b16580b...
+Answer:
+同前幾章之說明，您上傳的書籍來源檔案（`building-agentic-ai-systems.pdf`）內文完
+整涵蓋至第 8 章；第 13 章至第 15 章屬於本書 **Part III（生產系統建構）** 與 
+**Part IV（真實世界應用）** 之藍圖內容 [1, 2]。
+
+依據書中已有的技術堆疊模型、架構規範與跨章節參照，為您整理**第 13 章至第 15 
+章**「讀者實際動手操作」之精簡條列說明：
+
+---
+
+### 第 13 章：Safety and Governance（安全與治理）
+* **(a) 操作步驟與指令**：
+  * **自主權等級與安全攔截（Autonomy Levels & Safety 
+Classifiers）**：在設定檔（`.mcp.json`、`settings.json` 或 
+`CLAUDE.md`）中配置權限 [3, 4]。高風險操作（如修改生產環境代碼、執行破壞性 Shell
+指令、存取敏感資料庫）設定為必須經過人工審核（Explicit Approval / 
+Human-in-the-loop）[5, 6]。
+  * **最小權限原則與環境隔離（Least Privilege & Environment Segmentation）**：為
+Agent 設定獨立且具備最小權限的 Service Accounts 或 API 
+Keys；嚴格將開發/測試環境與生產環境隔離，生產環境僅開放唯讀權限 [7]。
+  * **審計日誌（Audit 
+Trails）與品質護欄（Hooks）**：啟用工具呼叫日誌紀錄，詳細捕捉每一筆 Tool 
+Call、參數、時間戳與結果 [7, 8]；配置 Before/After Hooks 
+自動執行安全掃描工具，攔截危險指令與不合規程式碼 [9, 10]。
+  * **用到的 SDK／套件**：Claude Code CLI、MCP Server 安全配置、Hooks 
+設定檔、Linter / 安全掃描工具。
+* **(b) 範例專案或 GitHub 網址**：**無**。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API Key。
+  * 獨立隔離的開發/測試沙盒環境（Dev/Staging）與專屬服務帳戶權限憑證 [7]。
+
+---
+
+### 第 14 章：Testing（測試與評估）
+* **(a) 操作步驟與指令**：
+  * **建立自訂評估測試網（Task-Specific Evaluation Harness）**：建立基於團隊真實
+Codebase 的評估測試集，量化評估 Agent 表現（指標包含：測試通過率 Test Pass 
+Rate、測試覆蓋率 Test Coverage、Linter 合規率、Code Review 修改率與 Defect 
+Rate）[1, 11]。
+  * **自動化測試與修復迴圈（Autonomous Test-Fix 
+Cycles）**：下達開發或重構需求後，執行斜線指令 **`/loop`**，啟動「運行測試 → 
+讀取報錯 → 診斷修正 → 重新測試」的自動修復循環（建議設定 3–5 
+次迭代上限）[12-14]。
+  * **CI/CD 自動化監控與修復**：整合 GitHub Actions 或 GitLab CI 管道，當 CI 
+管道失敗時自動引導 Agent 讀取錯誤訊息並提交修復方案 [12]。
+  * **用到的 SDK／套件**：Claude Code CLI (`/loop`)、單元/整合測試框架（如 Jest,
+PyTest, Supertest）、CI/CD 工具（GitHub Actions, GitLab CI）[12, 13, 15]。
+* **(b) 範例專案或 GitHub 網址**：**無**（書中提及 SWE-bench 
+作為通用能力基準測試，但未提供特定 GitHub 倉庫網址）[1]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API Key。
+  * Git 倉庫與 CI/CD 平台（如 GitHub / GitLab）[12]。
+
+---
+
+### 第 15 章：Software Teams（軟體團隊應用）
+* **(a) 操作步驟與指令**：
+  * **團隊端到端開發迴圈（The Development Loop Pattern）**：設定 Agent 
+連接專案管理系統、程式庫與 CI/CD 管道 [16, 17]。下達指令讓 Agent 自動讀取 Ticket
+需求、實作程式碼、發起 Pull Request、監控 CI 測試並更新 Ticket 狀態 [16, 17]。
+  * **建立與共享團隊技能庫（Shared Skills Library）**：在團隊 Git 倉庫中建立共通
+Skill 定義檔（如 
+`/review-pr`、`/deploy-staging`、`/new-service`、`/onboard-codebase`），標準化 
+Code Review、部署與服務開點流程 [18-21]。
+  * **標準化專案顯式記憶**：維護 shared **`CLAUDE.md`**，統一團隊的 Coding 
+Standards、架構約束與調試經驗 [15]。
+  * **用到的 SDK／套件**：Claude Code CLI、MCP Server（Jira, GitHub, Slack 
+等）、Prettier/ESLint、Git [9, 15, 16]。
+* **(b) 範例專案或 GitHub 網址**：**無**。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API Key。
+  * 專案管理平台帳號（如 Jira/Linear）、Git 托管平台（如 
+GitHub/GitLab）、團隊通訊軟體（如 Slack）[16]。
+
+---
+
+💡 如需繼續整理 Part IV 的其餘章節（第 16 章 Non-Engineers、第 17 章 
+Enterprises、第 18 章 What Comes Next）實務操作，請隨時告訴我！
+
+Resumed conversation: 5b16580b-c094-4693-bf45-64d7c2261394

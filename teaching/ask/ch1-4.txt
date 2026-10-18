@@ -1,0 +1,90 @@
+Different notebook specified, starting new conversation...
+Continuing conversation 5b16580b...
+Answer:
+以下依據本書內容，針對**第 1 章至第 4 
+章**整理「讀者實際動手操作」之詳細條列說明：
+
+---
+
+### 第 1 章：What Agentic AI Actually Is (and Isn't)
+* **(a) 操作步驟與指令**：**無** [1]。本章著重於代理式 AI（Agentic 
+AI）的概念定義、核心特徵（目標導向、工具使用、自主執行、迭代自我修正）與 7 
+大設計模式（ReAct、Reflection、Tool Use、Planning、Multi-Agent 
+Collaboration、Sequential Workflows、Human-in-the-loop）之解析，尚未進入程式碼或
+CLI 指令操作階段 [1-3]。
+* **(b) 範例專案或 GitHub 網址**：**無** [1]。
+* **(c) 需要的外部環境、API key 或帳號**：**無** [1]。
+
+---
+
+### 第 2 章：The Agentic AI Stack in 2026
+* **(a) 操作步驟與指令**：**無** [4]。本章建立代理式 AI 的 5 
+層技術堆疊架構模型（基礎模型層、編排層、工具存取層、記憶與上下文層、評估與安全層
+）與架構決策原則，具體的實作安裝與專案設定於第 3 章展開 [4-6]。
+* **(b) 範例專案或 GitHub 網址**：**無** [4]。
+* **(c) 需要的外部環境、API key 或帳號**：**無** [4]。
+
+---
+
+### 第 3 章：Getting Started with Claude Code
+* **(a) 操作步驟與指令**：
+  * **安裝與啟動 CLI**：開啟終端機（Terminal）進入專案目錄，執行 `claude` 
+指令啟動互動式 Session（首次執行會顯示 Anthropic 帳號身份驗證提示）[7]。
+  * **互動提示詞（Prompt）操作範例**：
+    * *專案結構解析*：`Explain the structure of this project. What are the main 
+components, and how do they connect?` [8]
+    * *功能實作與測試*：`Add a health check endpoint at /health that returns a 
+JSON response with the current timestamp and the application version from 
+package.json.` [8]
+  * **要建立的檔案與程式碼重點**：在專案根目錄建立 **`CLAUDE.md`** 
+作為專案顯式記憶文件 [9]。內容結構包含：
+    * `# Project: FinanceAPI` [9]
+    * `## Architecture`：定義系統架構（如 Express.js REST API with 
+PostgreSQL）[9]。
+    * `## Coding Standards`：程式碼規範（如 TypeScript strict mode、JSDoc 
+註解、自訂錯誤處理 `AppError`）[9, 10]。
+    * `## Testing`：測試框架與規範（如 Jest、Supertest、80% 覆蓋率、測試位置在 
+`__tests__/`）[10]。
+    * `## Dependencies`：套件管理規則（未經許可不可隨意新增第三方套件）[10]。
+    * `## Build and Run`：建置與運行指令（如 `npm run dev`、`npm test`、`npm run
+lint`）[10]。
+  * **用到的 SDK / 套件**：Claude Code Terminal CLI [7, 11]；範例技術棧涵蓋 
+Node.js、TypeScript、Express.js、Jest、Supertest [9, 10]。
+* **(b) 範例專案或 GitHub 
+網址**：**無**（書中說明讀者可使用任何既有的程式專案，並未提供特定的 GitHub 
+下載網址）[8, 12]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * **作業系統**：macOS、Linux 或 Windows (WSL) [13]。
+  * **帳號與訂閱**：Claude Pro / Claude Max 訂閱，或 Anthropic Console 
+帳號（可經由 Anthropic API 按使用量付費）[13]。
+  * **開發環境**：開發終端機（Terminal）環境（亦可搭配 VS Code 或 JetBrains 
+擴充套件）[7, 11, 13]。
+
+---
+
+### 第 4 章：How Claude Code Thinks
+* **(a) 操作步驟與指令**：
+  * **代理迴圈（Agentic Loop）運作實踐**：理解並配合 Agent 
+的四階段運作：Read（讀取專案與 `CLAUDE.md`）→ Plan（規劃步驟）→ 
+Execute（執行變更與 Shell 指令）→ Evaluate（執行測試與自動自我修正）[14-18]。
+  * **操作模式與流程管控**：
+    * *Plan Mode（規劃模式）*：針對複雜重構或高風險修改，要求 Agent 
+先產出顯式計畫供人類審查批准後才變更代碼 [16]。
+    * *Direct Execution Mode（直接執行模式）*：簡單任務由 Agent 
+自動進行隱式推理並直接執行 [16]。
+    * *Context Window（上下文視窗）重置*：當 Session 執行過久導致 Agent 
+出現偏離時，重開新 Session（執行 `claude`）讓 Agent 依據 `CLAUDE.md` 
+重新構建上下文 [19]。
+  * **要維護的檔案**：持續更新專案根目錄的 `CLAUDE.md`（將 Agent 
+曾經犯錯的經驗補充進去，作為調整 Agent 行為的主要槓桿）[19, 20]。
+  * **用到的 SDK / 套件**：Claude Code Terminal CLI [14]。
+* **(b) 範例專案或 GitHub 網址**：**無** [21]。
+* **(c) 需要的外部環境、API key 或帳號**：與第 3 
+章相同（macOS/Linux/WSL、Anthropic 帳號 / API 權限、Git 與測試套件環境）[7, 13, 
+17]。
+
+---
+
+💡 想繼續整理第 5 章至第 9 章（核心工作流與實務演練）的動手操作步驟與指令嗎？
+
+Resumed conversation: 5b16580b-c094-4693-bf45-64d7c2261394

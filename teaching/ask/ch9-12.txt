@@ -1,0 +1,81 @@
+Different notebook specified, starting new conversation...
+Continuing conversation 5b16580b...
+Answer:
+根據您上傳的書籍來源檔案（`building-agentic-ai-systems.pdf`），現有文本的內文僅
+完整涵蓋至**第 8 章** [1]。第 9 章至第 12 
+章在正文中尚未提供詳細的逐頁圖文與完整程式碼，僅於**「本書結構與前言導讀」** [1]
+及**前八章的跨章節參照** [2-4] 中揭露了其核心主題與架構設計 [1]。
+
+以下依據書中已有的結構規劃與概念參照，為您整理第 9 章至第 12 章的實力整理 [1]：
+
+---
+
+### 第 9 章：Computer Use
+* **(a) 操作步驟與指令**：
+  * **操作重點**：擴展代理人能力，使其超越 CLI 與 API 限制，透過 
+GUI／瀏覽器自動化（Computer Use）模擬人類操作電腦桌面與 Web 介面 [1, 5]。
+  * **程式碼與 CLI 重點**：配置代理人的 GUI 
+工具介面（如螢幕截圖讀取、滑鼠點擊、鍵盤輸入指令）[5, 6]。
+  * **用到的 SDK／套件**：Claude Code / Anthropic Computer Use 
+API、瀏覽器自動化工具（如 Playwright / Puppeteer）[5]。
+* **(b) 範例專案或 GitHub 網址**：**無** [1]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * 支持 GUI / Vision 的 Anthropic API Key 與 Claude 視覺模型授權 [7]。
+  * 具備作業系統與瀏覽器操作權限之沙盒環境（如 Docker 
+或虛擬機，以確保執行安全）[1, 5]。
+
+---
+
+### 第 10 章：Architecture Patterns
+* **(a) 操作步驟與指令**：
+  * **操作重點**：設計生產級的多代理人協作架構（Multi-Agent 
+Orchestration），包含 Supervisor/Worker、Fan-Out 及 Specialist 等分工模式 [2, 
+8]。
+  * **程式碼與 CLI 重點**：建立主代理人（Lead 
+Agent）調度邏輯，設定任務拆解（Task Decomposition）、子代理人權責邊界（Ownership
+boundaries）與訊息傳遞（Message Passing）機制 [2, 9-11]。
+  * **用到的 SDK／套件**：Claude Code CLI 多代理模式、Agent SDK [3]。
+* **(b) 範例專案或 GitHub 網址**：**無** [1]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API Key（多代理人平行執行需注意 API Token 消耗配額）[12]。
+  * 本地或雲端開發與測試環境（Node.js / TypeScript / Python）[1, 13]。
+
+---
+
+### 第 11 章：The Agent SDK
+* **(a) 操作步驟與指令**：
+  * **操作重點**：不依賴預設 CLI 介面，使用程式碼自訂專屬的 Agent 行為、ReAct 
+迴圈、工具存取權限與安全審查關卡 [3, 8, 14]。
+  * **要建立的檔案與程式碼重點**：撰寫自訂代理人主程式（如 `agent.ts` 或 
+`main.py`），調用 SDK 建立 Agent 實例、註冊自訂 Tools、定義 Human-in-the-loop 
+審核點 [3, 15]。
+  * **用到的 SDK／套件**：Anthropic Agent SDK（`@anthropic-ai/sdk` 
+或官方代理套件）[3]。
+* **(b) 範例專案或 GitHub 網址**：**無** [1]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API Key。
+  * Node.js / TypeScript 或 Python 開發環境 [13]。
+
+---
+
+### 第 12 章：Memory and State
+* **(a) 操作步驟與指令**：
+  * **操作重點**：建立跨 Session 的持久化記憶層（Persistent Memory 
+Layer），並有效管理 Prompt 的 Context Window（上下文視窗）[1, 4, 16]。
+  * **要建立與維護的檔案**：
+    * 專案顯式記憶檔：**`CLAUDE.md`**（持續修訂程式規範、架構決策與 
+Checklist）[4, 17, 18]。
+    * 隱式自動記憶：維護系統跨 Session 自動積累的 Debug 與指令修復紀錄 [4]。
+  * **用到的 SDK／套件**：Claude Code 記憶管理機制、本地檔案系統 / JSON 
+設定檔（或 Vector DB / 狀態儲存庫）[4, 16]。
+* **(b) 範例專案或 GitHub 網址**：**無** [1]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * 本地檔案讀寫權限與持久化資料庫環境 [4]。
+  * Anthropic API Key [19]。
+
+---
+
+💡 如需查詢其他章節或需要我對特定技術模式（如 MCP 或 
+Sub-Agents）進行更深入的解析，歡迎隨時提出！
+
+Resumed conversation: 5b16580b-c094-4693-bf45-64d7c2261394

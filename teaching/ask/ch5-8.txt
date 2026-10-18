@@ -1,0 +1,153 @@
+Different notebook specified, starting new conversation...
+Continuing conversation 5b16580b...
+Answer:
+以下依據本書內容，針對**第 5 章至第 8 
+章**整理「讀者實際動手操作」之精簡條列說明：
+
+---
+
+### 第 5 章：Code Generation and Refactoring at Scale
+* **(a) 操作步驟與指令**：
+  * **單檔案程式碼生成**：在 CLI 中下達具體需求提示詞（如生成 
+`src/validation/productValidator.ts` 資料驗證模組），並要求建立單元測試 
+`src/validation/__tests__/productValidator.test.ts` [1]。
+  * **跨檔案與跨層級開發**：提供結構化實作計畫提示詞（如新增 `favorites` 
+最愛功能），引導 Agent 
+依序建立資料庫遷移（`src/db/migrations/`）、Repository（`src/repositories/Favori
+tesRepository`）、Service（`src/services/FavoritesService`）、API 
+路由（`src/routes/favorites.ts`）與相應測試 [2, 3]。
+  * **大型程式碼重構與遷移**：
+    * 先要求 Agent 分析專案範疇（如 `Analyze the React components in 
+src/components/...`）[4]。
+    * 進行分批重構（如每批 10–15 個檔案），指定轉換規則（如將 Class 組件轉換為 
+Functional 組件、以 `useState`/`useEffect` 替代生命週期方法、PropTypes 轉 
+TypeScript 介面等）[4, 5]。
+    * 針對複雜組件（如 `DataGrid.tsx`）個別下達專屬 prompt 處理特殊邏輯（如 
+`React.memo`、`useLayoutEffect`）[5]。
+  * **自動測試修正迴圈**：在 CLI 執行斜線指令 **`/loop`**，啟動「運行測試 → 
+讀取錯誤 → 修改程式碼 → 重新測試」的自動修復循環（建議設定 3–5 次迭代上限）[6, 
+7]。
+  * **用到的 SDK／套件**：Claude Code CLI；開發環境涵蓋 TypeScript、React、Jest 
+/ 測試框架、npm / Prettier / Linter 等。
+* **(b) 範例專案或 GitHub 網址**：**無**（書中提及 Stripe 的 Scala 轉 Java 
+案例與 React 重構範例，但未提供 GitHub 專案網址）[4, 8]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Claude Code CLI 環境與 Anthropic 帳號 / API key。
+  * 本地開發與測試環境（如 Node.js, TypeScript, Jest, React, Git）。
+
+---
+
+### 第 6 章：MCP — Connecting Claude Code to Everything
+* **(a) 操作步驟與指令**：
+  * **配置本地 MCP 伺服器 (stdio)**：在專案 `.mcp.json`、`CLAUDE.md` 或設定檔的 
+`mcpServers` 中進行配置。例如連接本地 PostgreSQL 資料庫 [9, 10]：
+    ```json
+    {
+      "mcpServers": {
+        "postgres": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-postgres", 
+"postgresql://localhost:5432/myapp_dev"]
+        }
+      }
+    }
+    ```
+  * **配置遠端 MCP 伺服器 (HTTP / OAuth2)**：設定遠端服務（如 
+Jira），首次調用會觸發瀏覽器 OAuth2 驗證流程 [11]：
+    ```json
+    {
+      "mcpServers": {
+        "jira": {
+          "url": "",
+          "auth": {
+            "type": "oauth2",
+            "clientId": "your-client-id",
+            "scopes": ["read:jira-work", "write:jira-work"]
+          }
+        }
+      }
+    }
+    ```
+  * **開發自訂 MCP 伺服器**：建立 TypeScript 伺服器檔案（如 `server.ts`）[12]。
+    * *程式碼重點*：從 `@modelcontextprotocol/sdk/server` 引入 `McpServer`，使用
+`server.tool(...)` 宣告工具（如 `deploy-staging`）、使用 `server.resource(...)` 
+提供唯讀資料（如 `deploy-status`，URI 為 `deploy://status`），最後呼叫 
+`server.start()` [12, 13]。
+  * **用到的 SDK／套件**：`@modelcontextprotocol/sdk`（或 
+`@modelcontextprotocol/sdk/server`）、`@modelcontextprotocol/server-postgres`；N
+ode.js / npx / TypeScript。
+* **(b) 範例專案或 GitHub 網址**：**無**（書中範例包含 `` 等示範 URL，但無 
+GitHub 倉庫網址）[11]。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * 本地服務與資料庫（如 PostgreSQL）。
+  * 第三方平台帳號、OAuth 憑證或 API Key（如 Jira, GitHub, Slack 等）。
+
+---
+
+### 第 7 章：Sub-Agents and Parallel Execution
+* **(a) 操作步驟與指令**：
+  * **平行分派任務（Fan-Out Workflow）**：在 CLI 提示詞中指示主代理（Lead 
+Agent）建立並管理多個子代理（Sub-Agents），同步負責不同模組（如 Agent 1 
+負責資料庫、Agent 2 負責 Service 層、Agent 3 負責 API、Agent 4 負責寫測試）[14, 
+15]。
+  * **「實作-測試-文檔」三軌並行流程**：讓 1 個子代理寫功能代碼、1 
+個寫測試框架與 stub、1 個撰寫 API 文檔與 README，提升並列效率 [16]。
+  * 
+**大規模模組遷移流程**：將程式碼庫劃分為獨立模組，指派多個子代理平行執行遷移規則
+與模組測試，最後由主代理整合 [17]。
+  * **邊界與溝通管理**：子代理預設共享檔案系統（Shared 
+Context），需在提示詞中明確劃分檔案與目錄的權責邊界（Ownership 
+boundaries）以避免修改衝突 [18]；或採用訊息傳遞（Message 
+Passing）機制進行順序性傳遞 [19]。
+  * **用到的 SDK／套件**：Claude Code 
+CLI（主代理自動內建調度子代理機制，無需額外手動安裝 external SDK）[20]。
+* **(b) 範例專案或 GitHub 網址**：**無**。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Anthropic API key / Claude Code 帳號（需注意多個子代理同時平行執行會快速增加
+API Token 用量）[21]。
+  * 本地開發環境與專案測試套件 [15]。
+
+---
+
+### 第 8 章：Skills, Hooks, and Plugins
+* **(a) 操作步驟與指令**：
+  * **定義與呼叫自訂技能（Skills）**：
+    * **建立檔案**：撰寫 Markdown 格式的 Skill 定義檔，包含指令觸發名稱（如 
+`/review-pr`、`/deploy-staging`、`/new-service`、`/investigate-bug`、`/security-
+audit`）[22, 23]。
+    * **檔案內容重點**：包含 
+`Description`（說明用途）、`Instructions`（審查標準如 Correctness, Security, 
+Performance, Testing, Standards）與 `Output Format`（指定輸出格式如 PASS / NEEDS
+CHANGES / BLOCKING）[22, 24]。
+    * **CLI 指令**：在 Claude Code 中直接輸入斜線指令（如 
+`/review-pr`）執行全套自動化流程 [22, 24]。
+  * **配置自動防護網（Hooks）**：
+    * **建立檔案**：在專案設定檔（如 `.mcp.json` 或 Claude Code 
+設定/`settings.json`）中加入 `"hooks"` 物件 [25]。
+    * **設定重點**：設定 `afterFileWrite` (After Hook)，在 Agent 
+修改檔案後自動觸發格式化工具（如 Prettier）[25]：
+      ```json
+      {
+        "hooks": {
+          "afterFileWrite": {
+            "command": "npx prettier --write ${file}",
+            "pattern": "**/*.{ts,tsx,js,jsx}"
+          }
+        }
+      }
+      ```
+      亦可設定 Linter 檢查、TypeScript 型別檢查及 Commit 前的測試驗證（Before 
+Hook）[25, 26]。
+  * **用到的 SDK／套件**：Claude Code CLI；本地格式化與檢查工具（Prettier, 
+ESLint, Black, gofmt, rustfmt, TypeScript `tsc`）[25]。
+* **(b) 範例專案或 GitHub 網址**：**無**。
+* **(c) 需要的外部環境、API key 或帳號**：
+  * Claude Code CLI 環境。
+  * 本地命令列工具（如 Node.js/npx、Prettier、Linter 等）。
+
+---
+
+💡 如需繼續整理第 9 章（Computer Use）或 Part III（生產系統建構：第 10 至 14 
+章）的實務操作步驟，請隨時告訴我！
+
+Resumed conversation: 5b16580b-c094-4693-bf45-64d7c2261394
