@@ -12,3 +12,4 @@
 | 02 | 2026-10-18 | 3 分 | 概念章，改用「Issue 分類修復代理」實例填 5 層堆疊選型表＋ASCII 圖 |
 | 03 | 2026-10-18 | 7 分 | 不跑 /init、/login；CLAUDE.md 手寫書上五段格式；/health＋Supertest 2/2 通過 |
 | 04 | 2026-10-18 | 7 分 | 用 /plan 取代 Shift+Tab，整份計畫一次核准後切回 bypass；踩到 TS 7 與 ts-jest 不相容，教訓寫進 CLAUDE.md |
+| 05 | 2026-10-18 | 7 分 | favorites 用記憶體 repository（migration 只寫 SQL 藍圖）；legacy class 元件自行準備；66/66 測試通過 |
